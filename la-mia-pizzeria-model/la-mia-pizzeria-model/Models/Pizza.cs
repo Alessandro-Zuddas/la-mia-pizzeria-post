@@ -1,4 +1,6 @@
-﻿namespace la_mia_pizzeria_model.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace la_mia_pizzeria_model.Models
 {
     public class Pizza
     {
@@ -13,9 +15,18 @@
         }
 
         public int Id { get; set; }
-        public string ImgSrc { get; set; } = string.Empty;
+        public string? ImgSrc { get; set; }
+
+        [Required(ErrorMessage = "Nome obbligatorio!")]
+        [StringLength(50, ErrorMessage = "Il nome non può essere più lungo di 50 caratteri!")]
         public string Name { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "Descrizione obbligatoria!")]
+        [StringLength(150, ErrorMessage = "La descrizione non può essere più lunga di 150 caratteri!")]
         public string Description { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "Prezzo obbligatorio!")]
+        [Range(0, 100, ErrorMessage = "Il prezzo deve essere compreso tra 0 e 100!")]
         public string Price { get; set; } = string.Empty;
 
     }

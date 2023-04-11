@@ -13,24 +13,27 @@
         @Html.AntiForgeryToken()
 
       <div class="mb-3">
-        <label for="ImgSrc" class="form-label">Image:</label>
+        <label asp-for="ImgSrc" class="form-label">Image:</label>
         <input asp-for="ImgSrc" class="form-control" id="ImgSrc" aria-describedby="Name">
+        <span asp-validation-for="ImgSrc" class="text-danger"></span>
       </div>
       <div class="mb-3">
-        <label for="Name" class="form-label">Name:</label>
+        <label asp-for="Name" class="form-label">Name:</label>
         <input asp-for="Name" type="text" class="form-control" id="Name" aria-describedby="Name">
+        <span asp-validation-for="Name" class="text-danger"></span>
       </div>
       <div class="mb-3">
-        <label for="Description" class="form-label">Description:</label>
+        <label asp-for="Description" class="form-label">Description:</label>
         <input asp-for="Description" type="text" class="form-control" id="Description" aria-describedby="Description">
+        <span asp-validation-for="Description" class="text-danger"></span>
       </div>
       <div class="mb-3">
-        <label for="Price" class="form-label">Price:</label>
+        <label asp-for="Price" class="form-label">Price:</label>
         <input asp-for="Price" type="text" class="form-control" id="Price" aria-describedby="Price">
+        <span asp-validation-for="Price" class="text-danger"></span>
       </div>
-
-
 
       <button type="submit" class="btn btn-primary">Submit</button>
+
     </form>
 </div>
