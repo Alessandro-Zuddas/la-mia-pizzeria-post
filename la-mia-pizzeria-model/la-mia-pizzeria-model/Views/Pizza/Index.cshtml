@@ -1,0 +1,48 @@
+﻿
+@model Pizza[]
+
+@{
+    ViewData["Title"] = "Home Page";
+
+    var pizze = @Model;
+}
+
+<header class="text-center">
+    <h1>La mia pizzeria</h1>
+</header>
+
+@if(pizze.Length is 0)
+{
+    <h3>Nessuna pizza!</h3>
+}
+else
+{
+    <div class="text-center">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Immagine</th>
+              <th scope="col">Nome</th>
+              <th scope="col">Descrizione</th>
+              <th scope="col">Prezzo</th>
+            </tr>
+          </thead>
+          <tbody>
+                @foreach(var pizza in pizze)
+                {
+                    <tr>
+                      <th scope="row">@pizza.Id</th>
+                      <th> <img src="@pizza.ImgSrc"/> </th>
+                      <td>
+                          <a href="@Url.Action("Detail", "Pizza", new { Id = pizza.Id })"> @pizza.Name </a>
+                      </td>
+                      <td>@pizza.Description</td>
+                      <td>@pizza.Price</td>
+                    </tr> 
+                }
+          </tbody>
+        </table>
+    </div>
+}
+
